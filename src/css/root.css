@@ -1,0 +1,74 @@
+h1{
+    color: red;
+}
+.nav-div{
+    background-color: lightcyan;
+    border:1px solid black;
+    margin:0px;
+    padding:0px;
+    display:block;
+}
+.nav-div ul li {
+    display: inline-flex;
+    padding: 10px;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.user-profile{
+    background-color: burlywood;
+}
+.nav-div img{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+}
+
+.dash-main-view{
+    background:grey;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.dash-main-view div{
+    background:lightskyblue;
+    width:200px;
+    height: 200px;
+    margin: auto;
+}
+
+/* Signup and Login  style */
+.signup-div{
+    margin:auto;
+    width: 400px;
+}
+.signup-main-div{
+    margin:0px;
+    display: block;
+}
+.signup-main-div input{
+    padding:5px;
+    border-radius:2px;
+    width: 300px;
+}
+.signup-main-div label{
+    display: block;
+    padding:5px;
+}
+.signup-main-div select{
+    display: block;
+    padding:5px;
+    border-radius:2px;
+    width: 300px;
+}
+
+#submit{
+    padding: 5px;
+}
+
+select ,input:valid{
+    border:1px solid #4dff4d;
+}
+input:invalid{
+    border:1px solid #ff6666;
+}

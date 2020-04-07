@@ -1,0 +1,68 @@
+{{>header}}
+    {{>nav}}
+
+    
+    <div class="signup-div">
+        <h1>Signup</h1>
+        <form class="signup-main-div" onsubmit="return validate(this)" method="POST" action="/student/signup" name="myForm">
+            <label>Name</label>
+            <input type="text" name="username" placeholder="Name" required><br>
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <label>College Roll</label>
+            <input type="number" name="college_roll" placeholder="College Roll" required><br>
+            <label>University Roll</label>
+            <input type="number" name="university_roll" placeholder="University Roll" required><br>
+            <label>City</label>
+            <input type="text" name="city" placeholder="City" required><br>
+            <label>Contact Number </label>
+            <input type="number" name="contact_no" placeholder="Contact Number" ><br>
+            <label>Semester</label>
+            <input type="number" name="semester" placeholder="Year" required><br>
+            <label>Year</label>
+            <input type="number" name="year" placeholder="Year" required><br>
+            <label>Section</label>
+            <select name="section">
+                <option></option>
+                <option value="A">A</option>
+                <option>B</option>
+            </select>
+            <label>Department</label>
+            <select name="department">
+                <option></option>
+                <option>Electroincs and Communication</option>
+                <option>Electical</option>
+                <option>Information and Technology</option>
+                <option>Computer Science</option>
+            </select><br>
+            <label>New Password</label>
+            <input type="password" name="password" required="required">
+            <label>Confirm Password</label>
+            <input type="password" name="password2" required="required">
+            <p id="valid"></p>
+            <input type="submit" value="Signup" id="submit">
+        </form>
+    </div>
+    </body>
+
+    <script>
+        function validate(form){
+            var val1 = form.password.value;
+            var val2 = form.password2.value;
+            var x = document.getElementById("valid");
+            x.style.color = 'red';
+            if(val1.length <8){
+               x.innerHTML = "Password's length must be greater then eight"; 
+               return false;
+            } 
+            else if(val1 !== val2){
+                x.innerHTML = "Password do not match";
+                return false;
+            }  
+            else {
+                x.innerHTML =""
+                return true;
+                }
+        }
+    </script>
+</html>
