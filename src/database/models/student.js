@@ -9,7 +9,7 @@ const studentSchema = new mongoose.Schema({
         type:String,
         required:true,
         lowercase :true,
-        trim : true,
+        trim : true
     },
     college_roll:{
         type : Number,

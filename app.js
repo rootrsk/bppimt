@@ -4,6 +4,7 @@ const hbs = require('hbs')
 const path = require('path')
 const request = require('request')
 const studentRouter = require('./src/database/routers/student')
+const deptRouter = require('./src/database/routers/dept')
 const bodyParser = require('body-parser')
 const app = express()
 //Database
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 const router = new express.Router()
 app.use(router)
 app.use(studentRouter)
+app.use(deptRouter)
 const port = process.env.PORT 
 app.use(express.json())
 app.use(express.static(srcDirPath))
@@ -37,9 +39,9 @@ router.get('/dashboard',(req,res)=>{
 router.get('/help',(req,res)=>{
     res.render('help')
 })
-router.get('/about',(req,res)=>{
-    res.render('about')
-})
+// router.get('/about',(req,res)=>{
+//     res.render('about')
+// })
 router.get('/signup',(req,res)=>{
     res.render('signup')
 })
