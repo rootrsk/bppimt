@@ -6,6 +6,8 @@ const request = require('request')
 const studentRouter = require('./src/database/routers/student')
 const deptRouter = require('./src/database/routers/dept')
 const bodyParser = require('body-parser')
+const loginAuth = require('./src/middleware/loginAuth')
+const auth = require('./src/middleware/auth')
 const app = express()
 //Database
 require('./src/database/mongoose')
@@ -28,22 +30,30 @@ console.log("public views :",publicDirPath)
 app.set('view engine','hbs')
 app.set('views' ,publicDirPath)
 hbs.registerPartials(partialsDirPath)
+
+
 router.get('',(req,res)=>{
     res.render('index')
 })
-
-//Requseting  pages from home folder 
-router.get('/dashboard',(req,res)=>{
+router.get('/dashboard',auth,(req,res)=>{
     res.render('dashboard')
 })
 router.get('/help',(req,res)=>{
     res.render('help')
 })
-// router.get('/about',(req,res)=>{
-//     res.render('about')
-// })
-router.get('/signup',(req,res)=>{
+router.get('/about',(req,res)=>{
+    res.render('about')
+})
+router.get('/signup',loginAuth,(req,res)=>{
+    if(req.user) return res.redirect('/student/me')
     res.render('signup')
+})
+router.get('/login',loginAuth,async(req,res)=>{
+    if(req.user) return res.redirect('/student/me')
+    res.render('login')
+})
+router.get('/logout',(req,res)=>{
+    res.redirect('/student/logout')
 })
 
 //Starting server at locoal port 3000

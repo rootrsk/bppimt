@@ -6,7 +6,6 @@ const Dept = require('../models/semester')
 app.use(router)
 
 router.post('/dept',async(req,res)=>{
-    // const dept = req.body
     const dept = new Dept(req.body)
     await dept.save()
     res.send(dept)

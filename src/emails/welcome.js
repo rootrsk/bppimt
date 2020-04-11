@@ -1,6 +1,5 @@
 const sgMail = require('@sendgrid/mail')
 
-
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const welcomeMail = (email,name)=>{
@@ -11,7 +10,6 @@ const welcomeMail = (email,name)=>{
         text : `Welcome ${name} to test app you have just signed up .A confirmation mail will be send to this mail don't forgot to verify.`
     })
 }
-
 module.exports = {
     welcomeMail,
 }

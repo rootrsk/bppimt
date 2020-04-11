@@ -1,4 +1,13 @@
 {{>header}}
     {{>nav}}
+
+    <h1>Login</h1>
+    <form method="POST" action="/student/login">
+        <label>Email  : </label><br>
+        <input name="email" type="email" placeholder="Enter your email" required><br>
+        <label>Password : </label><br>
+        <input name="password" type="text" placeholder="password" required>
+        <input type="submit" value="login">
+    </form>
     </body>
 </html>
